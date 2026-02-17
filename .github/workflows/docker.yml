@@ -28,12 +28,7 @@ jobs:
           docker build \
             -t ghcr.io/$(echo "${{ github.repository_owner }}/${{ matrix.service }}" | tr '[:upper:]' '[:lower:]'):latest \
             ./${{ matrix.service }}
-
-          #docker build \
-          #  -t ghcr.io/${{ github.repository_owner | lower }}/${{ matrix.service }}:latest \
-          #  ./${{ matrix.service }}
-
       - name: Push image
         run: |
           docker push ghcr.io/$(echo "${{ github.repository_owner }}/${{ matrix.service }}" | tr '[:upper:]' '[:lower:]'):latest
-          #docker push ghcr.io/${{ github.repository_owner | lower }}/${{ matrix.service }}:latest
+
