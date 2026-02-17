@@ -19,8 +19,6 @@ RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/i
     && docker-php-ext-install gd
 RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pgsql pdo_pgsql
-    
-RUN 
 
 # INSTALL AND UPDATE COMPOSER
 COPY --from=composer /usr/bin/composer /usr/bin/composer
@@ -34,9 +32,4 @@ RUN composer require codeigniter4/shield
 RUN composer install
 RUN php spark migrate --all
 
-RUN chgrp -R 0 /var/run/apache2 && chmod -R g=u /var/run/apache2
-RUN chgrp -R 0 /run/apache2 && chmod -R g=u /run/apache2
-RUN chgrp -R 0 /run/apache2/apache2.pid && chmod -R g=u /run/apache2/apache2.pid
-
 RUN service apache2 restart
-
