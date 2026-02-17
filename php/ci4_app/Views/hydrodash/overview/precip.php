@@ -733,7 +733,7 @@ image_overlay_brighten_10.remove();
 image_overlay_brighten_25.remove();
 image_overlay_brighten_50.remove();
 tile_layer_osm_swiss.remove();
-tile_layer_basemap_gelaende.remove();
+hs.remove();
 tile_layer_basemap.remove();
 tile_layer_basemap_ortho.remove();
 tile_layer_basemap_overlay.remove();
